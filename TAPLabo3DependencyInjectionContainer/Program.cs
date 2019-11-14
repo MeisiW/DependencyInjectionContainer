@@ -8,7 +8,7 @@ namespace TAPLabo3DependencyInjectionContainer
     {
         static void Main(string[] args)
         {
-            var resolver = new InterfaceResolver("TDIC_Configuration.txt");
+            var resolver = new InterfaceResolver("TinyDICConfig.txt");
             var sender = resolver.Instantiate<IEmailSender>();
             sender.SendEmail("pippo", "pluto");
         }
