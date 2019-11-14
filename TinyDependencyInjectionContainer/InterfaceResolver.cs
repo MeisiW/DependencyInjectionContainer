@@ -68,5 +68,24 @@ namespace TinyDependencyInjectionContainer
                 }
             }
         }
+
+        public T Instantiate<T>() where T:class
+        {
+            return InstatiateRecursionwise<T>(new List<Type>{typeof(T)});
+        }
+
+        public T InstatiateRecursionwise<T>(List<Type> inProgress) where T : class
+        {
+            Type implType;
+            if (KnownTypes.ContainsKey(typeof(T)))  
+                implType = KnownTypes[typeof(T)];  
+            else
+            if (typeof(T).IsClass)     
+                implType = typeof(T);   
+            else
+                throw new ArgumentException($"Unknown type {typeof(T).Name}");
+
+            return (T)Activator.CreateInstance(implType);  
+        }
     }
 }
