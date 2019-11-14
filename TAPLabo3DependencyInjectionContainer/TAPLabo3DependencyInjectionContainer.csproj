@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmailSenderInterfaces\EmailSenderInterfaces.csproj" />
+    <ProjectReference Include="..\TinyDependencyInjectionContainer\TinyDependencyInjectionContainer.csproj" />
+  </ItemGroup>
+
 </Project>

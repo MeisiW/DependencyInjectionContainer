@@ -1,4 +1,6 @@
 ﻿using System;
+using EmailSenderInterfaces;
+using TinyDependencyInjectionContainer;
 
 namespace TAPLabo3DependencyInjectionContainer
 {
@@ -6,7 +8,9 @@ namespace TAPLabo3DependencyInjectionContainer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var resolver = new InterfaceResolver("TDIC_Configuration.txt");
+            var sender = resolver.Instantiate<IEmailSender>();
+            sender.SendEmail("pippo", "pluto");
         }
     }
 }
