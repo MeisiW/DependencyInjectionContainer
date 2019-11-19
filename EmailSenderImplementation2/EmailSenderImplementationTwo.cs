@@ -7,7 +7,7 @@ namespace EmailSenderImplementation2
     {
         public bool SendEmail(string to, string body)
         {
-            Console.WriteLine($"SendMailOne sends mail to {to} with body:\n{body}");
+            Console.WriteLine($"SendMailTwo sends mail to {to} with body:\n{body}");
             return true;
         }
     }
